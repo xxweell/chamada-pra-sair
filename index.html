@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #message {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #noButton {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="message">Deseja sair comigo?</div>
+        <button id="yesButton">Sim</button>
+        <button id="noButton">Não</button>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const message = document.getElementById('message');
+
+        yesButton.addEventListener('click', () => {
+            message.innerText = "Ahhh eu sabia que vc não iria resistir ao meu charme rsrsrs";
+            noButton.style.display = 'none'; // Oculta o botão Não
+        });
+
+        // Função para mover o botão Não para uma posição aleatória
+        function moveNoButton() {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - 100));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - 50));
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        // Adiciona um evento de movimento do mouse para o botão Não
+        noButton.addEventListener('mouseover', moveNoButton);
+
+    </script>
+
+</body>
+</html>
